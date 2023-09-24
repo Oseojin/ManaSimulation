@@ -20,7 +20,10 @@ public class ManaPlacer : MonoBehaviour
         int height = simulationManager.height;
         simulationManager.manaMap = new float[width, height];
         // For example, place initial mana at the center of the grid
-        //simulationManager.manaMap[0, 0] = initialMana;
-        simulationManager.manaMap[width / 2, height / 2] = initialMana;
+        simulationManager.manaMap[0, 0] = initialMana;
+        simulationManager.manaMap[width - 1, 0] = initialMana;
+        simulationManager.manaMap[0, height - 1] = initialMana;
+        simulationManager.manaMap[width - 1, height -1] = initialMana;
+        //simulationManager.manaMap[width / 2, height / 2] = initialMana;
     }
 }

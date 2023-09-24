@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7f4c51f434a0743983196db970579a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowSpeed: 0.1
+  flowSpeed: 10
 --- !u!114 &493948034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c0cf35517913a4c93137fc973fe731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMana: 4000
+  initialMana: 100000
 --- !u!114 &493948035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a37d6f48e52615408ef83e13e3f85c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 64
-  height: 64
+  width: 100
+  height: 100
 --- !u!4 &493948038
 Transform:
   m_ObjectHideFlags: 0

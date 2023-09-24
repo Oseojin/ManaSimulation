@@ -33,7 +33,7 @@ public class HeightMapGenerator : MonoBehaviour
             {
                 float fx = x;
                 float fy = y;
-                float heightValue = a * Mathf.Exp(-((fx - x0) * (fx - x0) / (2 * sigmaX * sigmaX) + (fy - y0) * (fy - y0) / (2 * sigmaY * sigmaY)));
+                float heightValue = 1 - a * Mathf.Exp(-((fx - x0) * (fx - x0) / (2 * sigmaX * sigmaX) + (fy - y0) * (fy - y0) / (2 * sigmaY * sigmaY)));
                 simulationManager.heightMap[x, y] = heightValue;
             }
         }
