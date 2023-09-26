@@ -6,6 +6,7 @@ public class SimulationManager : MonoBehaviour
 {
     public int width = 256;
     public int height = 256;
+    public float manaScale = 10f;
     public float[,] heightMap;
     public float[,] manaMap;
     public GameObject[,] cells;

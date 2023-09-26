@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(SimulationManager))]
@@ -7,6 +6,7 @@ public class ManaSimulator : MonoBehaviour
 {
     private SimulationManager simulationManager;
     public float flowSpeed = 0.1f;
+    public float totalMana = 0;
 
     public void LogicStart()
     {
@@ -23,6 +23,7 @@ public class ManaSimulator : MonoBehaviour
         int width = simulationManager.width;
         int height = simulationManager.height;
         float[,] nextManaMap = (float[,])simulationManager.manaMap.Clone();
+        totalMana = 0;
 
         for (int x = 0; x < width; x++)
         {
@@ -46,8 +47,10 @@ public class ManaSimulator : MonoBehaviour
                         }
                     }
                 }
+                totalMana += simulationManager.manaMap[x, y];
             }
         }
+        Debug.Log(totalMana);
         simulationManager.manaMap = nextManaMap;
     }
 }

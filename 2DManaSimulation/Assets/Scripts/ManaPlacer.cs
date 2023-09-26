@@ -12,14 +12,25 @@ public class ManaPlacer : MonoBehaviour
     public void LogicStart()
     {
         simulationManager = GetComponent<SimulationManager>();
-        PlaceMana();
+        //PlaceMana();
+        StartCoroutine(PlacerUpdate());
+    }
+
+    IEnumerator PlacerUpdate()
+    {
+        simulationManager.manaMap = new float[simulationManager.width, simulationManager.height];
+        while(true)
+        {
+            PlaceMana();
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     void PlaceMana()
     {
         int width = simulationManager.width;
         int height = simulationManager.height;
-        simulationManager.manaMap = new float[width, height];
+        //simulationManager.manaMap = new float[width, height];
         PlaceCenter(width, height);
     }
 
