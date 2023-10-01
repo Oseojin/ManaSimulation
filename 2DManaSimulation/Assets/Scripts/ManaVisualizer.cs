@@ -17,7 +17,7 @@ public class ManaVisualizer : MonoBehaviour
         VisualizeMana();
     }
 
-    void VisualizeMana()
+    private void VisualizeMana()
     {
         int width = simulationManager.width;
         int height = simulationManager.height;
@@ -26,9 +26,9 @@ public class ManaVisualizer : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                float manaValue = simulationManager.manaMap[x, y];
+                double manaValue = simulationManager.manaMap[x, y];
                 // Update the color of the cell at (x, y) based on manaValue
-                Color manaColor = new Color(manaValue, manaValue, manaValue);
+                Color manaColor = new Color((float)manaValue * 51, (float)manaValue  * 0, (float)manaValue * 0);
                 simulationManager.cells[x, y].GetComponent<Renderer>().material.color = manaColor;
             }
         }

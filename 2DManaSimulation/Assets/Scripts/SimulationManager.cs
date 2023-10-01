@@ -6,16 +6,16 @@ public class SimulationManager : MonoBehaviour
 {
     public int width = 256;
     public int height = 256;
-    public float manaScale = 10f;
-    public float[,] heightMap;
-    public float[,] manaMap;
+    public double manaScale = 10.0;
+    public double[,] heightMap;
+    public double[,] manaMap;
     public GameObject[,] cells;
 
-    private HeightMapGenerator heightMapGenerator;
-    private GridGenerator gridGenerator;
-    private ManaPlacer manaPlacer;
-    private ManaSimulator manaSimulator;
-    private ManaVisualizer manaVisualizer;
+    public HeightMapGenerator heightMapGenerator;
+    public GridGenerator gridGenerator;
+    public ManaPlacer manaPlacer;
+    public ManaSimulator manaSimulator;
+    public ManaVisualizer manaVisualizer;
 
     // 여기에 필요한 추가 설정 변수들을 선언할 수 있습니다.
 

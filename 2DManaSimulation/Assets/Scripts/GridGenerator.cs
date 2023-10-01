@@ -6,8 +6,10 @@ using UnityEngine;
 public class GridGenerator : MonoBehaviour
 {
     private SimulationManager simulationManager;
-    public float cellSize = 1f;
-    public float heightMultiplier = 10f;
+    [SerializeField]
+    private double cellSize = 1.0;
+    [SerializeField]
+    private double heightMultiplier = 10.0;
 
     public void LogicStart()
     {
@@ -15,7 +17,7 @@ public class GridGenerator : MonoBehaviour
         GenerateGrid();
     }
 
-    void GenerateGrid()
+    private void GenerateGrid()
     {
         int width = simulationManager.width;
         int height = simulationManager.height;
@@ -25,12 +27,12 @@ public class GridGenerator : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                float heightValue = simulationManager.heightMap[x, y] * heightMultiplier;
-                Vector3 position = new Vector3(x * cellSize, heightValue, y * cellSize);
+                double heightValue = simulationManager.heightMap[x, y] * heightMultiplier;
+                Vector3 position = new Vector3((float)(x * cellSize), (float)heightValue, (float)(y * cellSize));
                 GameObject cell = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(cell.gameObject.GetComponent<BoxCollider>());
                 cell.transform.position = position;
-                cell.transform.localScale = new Vector3(cellSize, heightValue, cellSize);
+                cell.transform.localScale = new Vector3((float)(cellSize), (float)heightValue, (float)cellSize);
                 simulationManager.cells[x, y] = cell;
             }
         }

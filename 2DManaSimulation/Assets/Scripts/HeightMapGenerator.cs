@@ -6,7 +6,8 @@ using UnityEngine;
 public class HeightMapGenerator : MonoBehaviour
 {
     private SimulationManager simulationManager;
-    public float scale = 20;
+    [SerializeField]
+    private double scale = 20.0;
 
     public void LogicStart()
     {
@@ -18,7 +19,7 @@ public class HeightMapGenerator : MonoBehaviour
     {
         int width = simulationManager.width;
         int height = simulationManager.height;
-        simulationManager.heightMap = new float[width, height];
+        simulationManager.heightMap = new double[width, height];
 
         // 가우시안 함수의 파라미터 설정
         float a = 1f; // 최대 높이
@@ -33,7 +34,7 @@ public class HeightMapGenerator : MonoBehaviour
             {
                 float fx = x;
                 float fy = y;
-                float heightValue = a * Mathf.Exp(-((fx - x0) * (fx - x0) / (2 * sigmaX * sigmaX) + (fy - y0) * (fy - y0) / (2 * sigmaY * sigmaY)));
+                double heightValue = a * Mathf.Exp(-((fx - x0) * (fx - x0) / (2 * sigmaX * sigmaX) + (fy - y0) * (fy - y0) / (2 * sigmaY * sigmaY)));
                 simulationManager.heightMap[x, y] = heightValue;
             }
         }
